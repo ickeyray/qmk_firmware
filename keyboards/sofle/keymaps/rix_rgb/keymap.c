@@ -19,7 +19,7 @@
 
 #include QMK_KEYBOARD_H
 
-#define INDICATOR_BRIGHTNESS 30
+#define INDICATOR_BRIGHTNESS 40
 
 #define HSV_OVERRIDE_HELP(h, s, v, Override) h, s , Override
 #define HSV_OVERRIDE(hsv, Override) HSV_OVERRIDE_HELP(hsv,Override)
@@ -89,29 +89,29 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /*
  * QWERTY
  * ,-----------------------------------------.                    ,-----------------------------------------.
- * | ESC  |   1  |   2  |   3  |   4  |   5  |                    |   6  |   7  |   8  |   9  |   0  |  `   |
+ * | `    |   1  |   2  |   3  |   4  |   5  |                    |   6  |   7  |   8  |   9  |   0  |  Del |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * | TAB  |   Q  |   W  |   E  |   R  |   T  |                    |   Y  |   U  |   I  |   O  |   P  | Bspc |
+ * | ESC  |   Q  |   W  |   E  |   R  |   T  |                    |   Y  |   U  |   I  |   O  |   P  | Bspc |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |LShift|   A  |   S  |   D  |   F  |   G  |-------.    ,-------|   H  |   J  |   K  |   L  |   ;  |  '   |
+ * | TAB  |   A  |   S  |   D  |   F  |   G  |-------.    ,-------|   H  |   J  |   K  |   L  |   ;  |  '   |
  * |------+------+------+------+------+------| MUTE  |    |DISCORD|------+------+------+------+------+------|
- * | LCTR |   Z  |   X  |   C  |   V  |   B  |-------|    |-------|   N  |   M  |   ,  |   .  |   /  |LShift|
+ * | LShift |   Z  |   X  |   C  |   V  |   B  |-------|    |-------|   N  |   M  |   ,  |   .  |   /  |LShift|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *            | Bspc | WIN  |LOWER | Enter| /Space  /       \Enter \  |SPACE |RAISE | RCTR | RAlt |
+ *            | WIN  | LAlt | LCTR | Enter| /LOWER  /       \RAISE \  |SPACE |RCTR  | RAlt | WIN  |
  *            |      |      |      |      |/       /         \      \ |      |      |      |      |
  *            `----------------------------------'           '------''---------------------------'
  */
   [_QWERTY] = LAYOUT(
   //,------------------------------------------------.                    ,---------------------------------------------------.
-  KC_ESC,   KC_1,   KC_2,    KC_3,    KC_4,    KC_5,             LT(_SWITCH,KC_6), KC_7,   KC_8,    KC_9,    KC_0,    KC_GRV,
+  KC_GRV,   KC_1,   KC_2,    KC_3,    KC_4,    KC_5,             LT(_SWITCH,KC_6), KC_7,   KC_8,    KC_9,    KC_0,    KC_DEL,
   //|------+-------+--------+--------+--------+------|                   |--------+-------+--------+--------+--------+---------|
-  LT(_NUMPAD,KC_TAB),KC_Q,KC_W,KC_E,  KC_R,    KC_T,                      KC_Y,    KC_U,   KC_I,    KC_O,    KC_P,    KC_BSPC,
+  KC_ESC,   KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                      KC_Y,    KC_U,   KC_I,    KC_O,    KC_P,    KC_BSPC,
   //|------+-------+--------+--------+--------+------|                   |--------+-------+--------+--------+--------+---------|
-  KC_LSFT,  KC_A,   KC_S,    KC_D,    KC_F,    KC_G,                      KC_H,    KC_J,   KC_K,    KC_L,    KC_SCLN, KC_QUOT,
+LT(_NUMPAD,KC_TAB),KC_A,KC_S, KC_D,    KC_F,    KC_G,                     KC_H,    KC_J,   KC_K,    KC_L,    KC_SCLN, KC_QUOT,
   //|------+-------+--------+--------+--------+------|  ===  |   |  ===  |--------+-------+--------+--------+--------+---------|
-  KC_LCTRL, KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,  KC_MUTE,  KC_D_MUTE,KC_N,    KC_M,   KC_COMM, KC_DOT,  KC_SLSH, KC_LSFT,
+  KC_LSFT,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,  KC_MUTE,  KC_D_MUTE,KC_N,    KC_M,   KC_COMM, KC_DOT,  KC_SLSH, KC_LSFT,
   //|------+-------+--------+--------+--------+------|  ===  |   |  ===  |--------+-------+--------+--------+--------+---------|
-                 KC_BSPC, KC_LGUI, KC_LOWER, KC_SPC,  KC_ENT   ,     KC_SPC, KC_ENT ,  KC_RAISE, KC_RCTRL, KC_RALT
+                 KC_LGUI, KC_LALT, KC_LCTRL, KC_ENT,  KC_LOWER  , KC_RAISE, KC_SPC , KC_RCTRL, KC_RALT, KC_RGUI
   //            \--------+--------+--------+---------+-------|   |--------+---------+--------+---------+-------/
 ),
 
@@ -405,10 +405,12 @@ static void render_logo(void) {
     oled_write_P(qmk_logo, false);
 }
 
+
+
 static void print_status_narrow(void) {
     // Print current mode
     oled_write_P(PSTR("\n\n"), false);
-    oled_write_ln_P(PSTR("Dane\nEvans"), false);
+    oled_write_ln_P(PSTR("RIX"), false);
 
     oled_write_ln_P(PSTR(""), false);
 
