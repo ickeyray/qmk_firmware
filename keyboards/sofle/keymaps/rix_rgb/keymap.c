@@ -736,9 +736,9 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 			case _RAISE:
 			case _LOWER:
 					if (clockwise) {
-						tap_code(KC_DOWN);
+						tap_code(KC_LEFT);
 					} else {
-						tap_code(KC_UP);
+						tap_code(KC_RIGHT);
 					}
 				break;
 			default:
