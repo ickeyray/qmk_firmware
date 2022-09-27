@@ -111,7 +111,7 @@ LT(_NUMPAD,KC_TAB),KC_A,KC_S, KC_D,    KC_F,    KC_G,                     KC_H, 
   //|------+-------+--------+--------+--------+------|  ===  |   |  ===  |--------+-------+--------+--------+--------+---------|
   KC_LSFT,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,  KC_MUTE,  KC_D_MUTE,KC_N,    KC_M,   KC_COMM, KC_DOT,  KC_SLSH, KC_LSFT,
   //|------+-------+--------+--------+--------+------|  ===  |   |  ===  |--------+-------+--------+--------+--------+---------|
-                 KC_LGUI, KC_LALT, KC_LCTRL, KC_ENT,  KC_LOWER  , KC_RAISE, KC_SPC , KC_RCTRL, KC_RALT, KC_RGUI
+                 KC_LALT, KC_LGUI,  KC_LCTRL, KC_ENT, KC_LOWER, KC_RAISE, KC_SPC, KC_RCTRL, KC_RGUI, KC_RALT
   //            \--------+--------+--------+---------+-------|   |--------+---------+--------+---------+-------/
 ),
 
