@@ -718,9 +718,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 bool encoder_update_user(uint8_t index, bool clockwise) {
     if (index == 0) {
         if (clockwise) {
-            tap_code(KC_VOLU);
+            tap_code(KC_PGDOWN);
         } else {
-            tap_code(KC_VOLD);
+            tap_code(KC_PGUP);
         }
 		} else if (index == 1) {
 			switch (get_highest_layer(layer_state)) {
@@ -728,9 +728,9 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 				case _QWERTY:
 				case _COLEMAKDH:
 					if (clockwise) {
-						tap_code(KC_PGDOWN);
+						tap_code(KC_VOLU);
 					} else {
-						tap_code(KC_PGUP);
+						tap_code(KC_VOLD);
 					}
 				break;
 			case _RAISE:
